@@ -21,7 +21,6 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique(); //Debe ser unico
             $table->timestamp('email_verified_at')->nullable(); //Guarda fechas al verificar correos - nullable pasa la propiedad de vacio (NULL)
             $table->string('password'); //varchar
-            $table->string('avatar');
             $table->rememberToken(); //varchar de longitud 100, marca "mantener la sesion iniciada"
             $table->timestamps(); //Al guardar se almacena la fecha en "created_at" y al modificar, pone la fecha en updated_at
         });
