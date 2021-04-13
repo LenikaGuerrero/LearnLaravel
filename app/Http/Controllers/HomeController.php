@@ -9,6 +9,6 @@ class HomeController extends Controller
     public function __invoke()
     {
         //__invoke() solo se utiliza cuando se quiere administrar una unica ruta
-        return "Bienvenido a la Pagina Principal";
+        return view('home');
     }
 }

@@ -9,18 +9,21 @@ class CursoController extends Controller
     public function index()
     {
         //Metodo para mostrar la pag Principal
-        return "Bienvenido a la pagina de cursos";
+        //Para indicar los archivos de una misma carpeta se pone un punto (.) en vez de /
+        return view('cursos.index');
     }
 
     public function create()
     {
         //Metodo para mostar un Formulario para crear un curso
-        return "En esta pagina podras crear un curso";
+        return view('cursos.create');
     }
 
     public function show($curso)
     {
         //Metodo para mostrar un elemento en particular
-        return "Bienvenido al curso $curso";
+        //Si se quiere mandar una variable a la vista con el mismo nombre se puede usar "compact"
+        //compact('curso') == ['curso'=>$curso]
+        return view('cursos.show', compact('curso'));
     }
 }
