@@ -11,16 +11,18 @@ class CreateUsersTable extends Migration
      *
      * @return void
      */
-    public function up()
+    public function up() //Crea la tabla
     {
+        //nombre de la tabla, funcion que crea las columna de las tablas
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
-            $table->timestamps();
+            $table->id(); //Integer Unsigned Increment
+            $table->string('name');//varchar(para indicar otra longitud se pone una coma ',' y el valor)
+            // $table->text('nombre'); //Almacena mas de 255 caracteres
+            $table->string('email')->unique();//Debe ser unico
+            $table->timestamp('email_verified_at')->nullable();//Guarda fechas al verificar correos - nullable pasa la propiedad de vacio (NULL)
+            $table->string('password');//varchar
+            $table->rememberToken();//varchar de longitud 100, marca "mantener la sesion iniciada"
+            $table->timestamps();//Al guardar se almacena la fecha en "created_at" y al modificar, pone la fecha en updated_at
         });
     }
 
@@ -31,6 +33,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('users'); //Elimina la tabla
     }
 }
